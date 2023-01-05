@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
 function Alerts() {
@@ -16,6 +17,21 @@ function Alerts() {
 
   return (
     <div>
+      {alerts.map(alert => (
+        <Card
+        body
+        outline
+        color="success"
+        className="mx-1 my-2"
+        style={{ width: "30rem" }}
+      >
+        <Card.Body>
+        <Card.Title>Alert</Card.Title>
+        <Card.Text>{alert.attributes.header}{alert.attributes.description}</Card.Text>
+        </Card.Body>
+      </Card>
+      ))}
+
         <h1>Alerts!</h1>
       {alerts.map(alert => (
         <div key={alert.id}>
